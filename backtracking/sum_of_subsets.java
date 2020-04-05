@@ -1,11 +1,19 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 class sum_of_subsets {
     public static void main(String[] args) {
-        java.util.Scanner sc = new Scanner(System.in);
-        int sum = sc.nextInt();
-        int 
-        if(solve(5, ar, sum) == 2) System.out.println("Yes");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter the array: ");
+        String s[] = br.readLine().split(" ");
+        int ar[] = new int[s.length];
+        for(int i = 0; i < s.length; i++) ar[i] = Integer.parseInt(s[i]);
+
+        System.out.print("Enter the target: ");
+        int target = Integer.parseInt(br.readLine());
+
+
+        if(solve(s.length ,arr ,target) == 2) System.out.println("Yes");
         else System.out.println("No");
     }
     static int solve(int n, int ar[], int target) {
