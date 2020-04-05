@@ -1,8 +1,9 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 class sum_of_subsets {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter the array: ");
         String s[] = br.readLine().split(" ");
@@ -13,7 +14,7 @@ class sum_of_subsets {
         int target = Integer.parseInt(br.readLine());
 
 
-        if(solve(s.length ,arr ,target) == 2) System.out.println("Yes");
+        if(solve(ar.length-1 ,ar ,target) == target) System.out.println("Yes");
         else System.out.println("No");
     }
     static int solve(int n, int ar[], int target) {
