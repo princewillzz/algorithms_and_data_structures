@@ -1,6 +1,8 @@
+import queue.Queue;
+
 import java.util.*;
 
-public class binarySearchTree {
+public class BinarySearchTree {
 
     class Node {
         int data;
@@ -86,10 +88,16 @@ public class binarySearchTree {
         temp = temp.left;
         return temp.data;
     }
+
+    void levelOrder() {
+        
+        Node temp = root;
+
+    }
  
     public static void main(String argv[]) {
         Scanner sc = new Scanner(System.in);
-        binarySearchTree bst = new binarySearchTree();
+        BinarySearchTree bst = new BinarySearchTree();
         bst.insert(50);bst.insert(30);bst.insert(10);bst.insert(20);bst.insert(100);bst.insert(150);bst.insert(80);
         while(true) {
             System.out.print("\n1...add\n2...display\n3...delete\n4...exit\nEnter your choice: ");
