@@ -92,15 +92,24 @@ public class BinarySearchTree {
     void levelOrder() {
         
         Node temp = root;
+        Queue<Node> q = new Queue<Node>();
+        q.add(temp);
+        while(!q.isEmpty()) {
+            Node item = q.dequeue();
+            System.out.print(item.data + " ");
+            if(item.left != null) q.add(item.left);
+            if(item.right != null) q.add(item.right);
+        }
 
     }
  
     public static void main(String argv[]) {
         Scanner sc = new Scanner(System.in);
         BinarySearchTree bst = new BinarySearchTree();
-        bst.insert(50);bst.insert(30);bst.insert(10);bst.insert(20);bst.insert(100);bst.insert(150);bst.insert(80);
+        bst.insert(50);bst.insert(30);bst.insert(10);bst.insert(40);bst.insert(100);bst.insert(150);bst.insert(80);
+        
         while(true) {
-            System.out.print("\n1...add\n2...display\n3...delete\n4...exit\nEnter your choice: ");
+            System.out.print("\n1...add\n2...display\n3...delete\n4...LevelOrder\n5...exit\nEnter your choice: ");
             int ch = sc.nextInt();
             if(ch == 1) {
                 System.out.print("Enter data: ");
@@ -113,9 +122,10 @@ public class BinarySearchTree {
                 int data = sc.nextInt();
                 bst.delete(data);
             }
-            else {
-                return;
+            else if(ch == 4){
+                bst.levelOrder();
             }
+            else return;
         }
         
 

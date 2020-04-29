@@ -1,23 +1,23 @@
 package queue;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
-public class Queue {
+public class Queue<T> {
     class Node {
-        int data;
+        T data;
         Node next;
-        Node(int data) {
+        Node(T data) {
             this.data = data;
             next = null;
         }
     }
     Node front = null, rear = null;
-    Node newNode(int data) {
+    Node newNode(T data) {
         Node temp = new Node(data);
         return temp;
     }
 
-    public void add(int data) {
+    public void add(T data) {
         Node temp = newNode(data);
         if(rear == null) {
             front = temp;
@@ -37,27 +37,34 @@ public class Queue {
         System.out.println();
     }
 
-    public void dequeue() {
-        if(front == null) return;
-        System.out.print("Before deletion: "); display();
+    public boolean isEmpty() {
+        if(front == null) return true;
+        return false;
+    }
+
+    public T dequeue() {
+        if(front == null) return null;
+        //System.out.print("Before deletion: "); 
+        Node temp = front;
         front = front.next;
         if(front == null) rear = null;
-        System.out.print("After deletion : "); display();
+        return temp.data;
+        //System.out.print("After deletion : "); 
     }
 
     /*public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        Queue q = new Queue();
-        q.add(90);q.add(80);q.add(70);q.add(60);q.add(50);q.add(40);q.add(90);
+        Queue<Float> q = new Queue<Float>();
+        q.add(9.8f);//q.add("harsh");q.add("Tiwaei");q.add("boy");q.add("is");//q.add(50);q.add(40);q.add(90);
         
         while(true) {    
-            int data, ch;
+            int ch;
             System.out.print("1...add\n2...display\n3...dequeue\nEnter your choice: ");
             ch = sc.nextInt();
             switch (ch) {
                 case 1:
                     System.out.println("Enter the data to be inserted: ");
-                    data = sc.nextInt();
+                    float data = sc.nextFloat();
                     q.add(data);
                     break;
                 case 2:
