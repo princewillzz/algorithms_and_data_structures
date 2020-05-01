@@ -55,9 +55,26 @@ public class merge_sort {
         int mid = left/2+right/2;
         optimisedMergeSort(ar, left, mid);
         optimisedMergeSort(ar, mid+1, right);
-        optimisedMerge(ar, left, right);
+        inplaceMerge(ar, left, right);
         //ar = merge(optimisedMergeSort(ar, left, mid), optimisedMergeSort(ar, mid+1, right));
         
+    }
+    void inplaceMerge(int ar[], int start1, int end2) {
+        int start2 = start1/2+end2/2+1, end1 = start2-1;
+        while(start1 <= end1 && start2 <= end2) {
+            if(ar[start1] < ar[start2]) start1++;
+            else {
+                int value = ar[start2], index = start2;
+                while(index > start1) {
+                    ar[index] = ar[index -1];
+                    index--;
+                }
+                ar[start1] = value;
+                start1++;
+                start2++;
+                end1++;
+            }
+        }
     }
     void optimisedMerge(int ar[], int start1, int end2) {
         int start2 = start1/2+end2/2+1, end1 = start2-1;
