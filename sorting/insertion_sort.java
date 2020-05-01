@@ -10,12 +10,12 @@ public class insertion_sort {
 		for(int i = 0; i < inp.length; i++) array[i] = Integer.parseInt(inp[i]);
 
 		insertion_sort is = new insertion_sort();
-		array = is.sort(array);
+		is.sort(array);
 
 		for(int ele: array) System.out.print(ele + " ");
 		
 	}
-	public int[] sort(int[] ar) {
+	public void sort(int[] ar) {
 		int n = ar.length;
 		for(int i = 1; i < n; i++) {
 			/*for(int j=i; j > 0 && ar[j] < ar[j-1]; j--) {
@@ -32,7 +32,7 @@ public class insertion_sort {
 				ar[--j] = temp;
 			}
 		}
-		return ar;
+		
 	}
 
 }

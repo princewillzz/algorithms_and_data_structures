@@ -9,13 +9,13 @@ public class merge_sort {
 		int array[] = new int[inp.length];
 		for(int i = 0; i < inp.length; i++) array[i] = Integer.parseInt(inp[i]);
         merge_sort ms = new merge_sort();
-		array = ms.sort(array);
+		ms.sort(array);
 
 		for(int ele: array) System.out.print(ele + " ");
 		
     }
-    public int[] sort(int[] ar) {
-        return optimisedMergeSort(ar, 0, ar.length-1);
+    public void sort(int[] ar) {
+        optimisedMergeSort(ar, 0, ar.length-1);
         
     }
     int[] mergeSort(int[] ar, int left, int right) {
@@ -46,20 +46,21 @@ public class merge_sort {
         return ans;
     }
 
-    int[] optimisedMergeSort(int[] ar, int left, int right) {
+    void optimisedMergeSort(int[] ar, int left, int right) {
         if(left >= right) {
             /*int a[] = new int[1]; 
             a[0] = ar[left];*/
-            return new int[] {ar[left]};
+            return;
         }
         int mid = left/2+right/2;
         optimisedMergeSort(ar, left, mid);
         optimisedMergeSort(ar, mid+1, right);
-        ar = optimisedMerge(ar, left, mid, mid+1, right);
+        optimisedMerge(ar, left, right);
         //ar = merge(optimisedMergeSort(ar, left, mid), optimisedMergeSort(ar, mid+1, right));
-        return ar;
+        
     }
-    int[] optimisedMerge(int ar[], int start1, int end1, int start2, int end2) {
+    void optimisedMerge(int ar[], int start1, int end2) {
+        int start2 = start1/2+end2/2+1, end1 = start2-1;
         int ans[] = new int[(end1-start1+1) + (end2-start2+1)], index = 0, i = start1;
         while(start1 <= end1 && start2 <= end2) {
             if(ar[start1] < ar[start2]) ans[index++] = ar[start1++];
@@ -71,6 +72,5 @@ public class merge_sort {
         while(i <= end2) {
             ar[i++] = ans[index++];
         }
-        return ar;
     }
 }
