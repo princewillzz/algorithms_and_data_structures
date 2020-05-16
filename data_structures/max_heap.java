@@ -23,7 +23,7 @@ public class max_heap {
             }*/
         }
 
-        display();
+        System.out.print("Initial heap: "); display();
     }
 
 
@@ -76,6 +76,15 @@ public class max_heap {
         }
     }
 
+    int[] heap_sort() {
+        int ar[] = new int[HEAP_SIZE+1];
+        int len = HEAP_SIZE+1;
+        for(int i = 0; i < len; i++) {
+            ar[i] = extract_max();
+        }
+        return ar;
+    }
+
     void display() {
         for(int ele: heap) System.out.print(ele + " ");
         System.out.println();
@@ -90,7 +99,9 @@ public class max_heap {
         /*System.out.println(mp.extract_max());
         mp.display();*/
 
-        mp.extract_max_all();
+        //mp.extract_max_all();
+        ar = mp.heap_sort();
+        for(int i: ar) System.out.print(i+" ");
 
     }
 
