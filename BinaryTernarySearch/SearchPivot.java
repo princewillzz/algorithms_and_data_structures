@@ -15,22 +15,19 @@ public class SearchPivot{
     static int numberOfTimesRotated(int ar[]) {
         int a = (searchPivotIndex(ar));
         //System.out.println(a);
-        if(a == -1) return 0;
+        if(a <= 0) return 0;
         return ar.length - a;
     }
     static int searchPivotIndex(int ar[]) {
-        int ans = -1;
+        int ans = 0;
         int start = 0, end = ar.length-1;
         while(start <= end) {
             int mid = start + (end-start)/2;
             if(ar[mid] <= ar[start] && ar[mid] <= ar[end]) {
                 ans = mid;
-                end = mid-1;
-            } else if(ar[mid] > ar[start] && ar[mid] < ar[end]) {
-                end = mid-1;
-            } else {
-                start = mid+1;
-            }
+                end = mid - 1;
+            } else if(ar[mid] < ar[end]) end = mid-1;
+            else start = mid+1;
         }
 
         return ans;
