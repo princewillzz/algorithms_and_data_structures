@@ -9,8 +9,44 @@ public class SearchPivot{
         int ar[] = new int[str.length], index = 0;
         for(String s: str) ar[index++] = Integer.parseInt(s);
         
-        System.out.println(numberOfTimesRotated(ar));
+        int val = Integer.parseInt(br.readLine());
+        //System.out.println(numberOfTimesRotated(ar));
+        System.out.println(search(ar, val));
         
+    }
+    static boolean search(int ar[], int val) {
+        
+        int start = 0, end = ar.length-1;
+        while(start <= end) {
+            int mid = start + (end-start)/2;
+            if(ar[mid] == val) return true;
+
+            if(val >= ar[start] && val <= ar[end]) {
+                if(ar[mid] > val) {
+                    end = mid-1;
+                } else {
+                    start = mid+1;
+                }
+            } else {
+                if(val >= ar[start]) end = mid-1;
+                else start = mid+1;
+            }
+
+        }
+        /*int i = searchPivotIndex(ar);
+        if(val >= ar[i] && val <= ar[end]) start = i;
+        else end = i-1;
+        while(start <= end) {
+            int mid = start + (end-start)/2;
+            if(ar[mid] == val) return true;
+            if(ar[mid] > val) {
+                end = mid-1;
+            } else {
+                start = mid+1;
+            }
+        }*/
+
+        return false;
     }
     static int numberOfTimesRotated(int ar[]) {
         int a = (searchPivotIndex(ar));
