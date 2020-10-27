@@ -3,15 +3,15 @@ import java.util.ArrayList;
 public class Dijikstra{
     public static void main(String argv[]) {
         
-        int vertex[] = new int[]{0, 1, 2, 3, 4};
-        int edges[][] = new int[][]{{1, 2}, {3, 2}, {1, 3, 4}, {4}, {3}};
-        int weights[][] = new int[][]{{10, 3}, {2, 1}, {4, 8, 2}, {7}, {9}};
+        int vertex[] = new int[]{0, 1, 2, 3};
+        int edges[][] = new int[][]{{1, 2}, {3}, {3}, {3}};
+        int weights[][] = new int[][]{{10, 3}, {1}, {2}, {10}};
 
-        System.out.println("Distance: " + findShortestPath(vertex, edges, weights, 0));
+        System.out.println("Distance: " + findShortestPath(vertex, edges, weights, 3));
 
     }
     static int value[] = new int[]{0, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
-    static int prev[] = new int[5];
+    static int prev[] = new int[4];
 
     public static int findShortestPath(int[] vertex, int edges[][], int weights[][], int destination) {
         int ans = Integer.MAX_VALUE;
@@ -45,11 +45,13 @@ public class Dijikstra{
                 flag = true;
                 value[v] = d;
                 prev[v] = source;
+                System.out.println(source + " " +v);
                 
             }
             // Finding new Source
             if(value[v] <= newSource) {
                 newSource = v;
+
             }
         }
         if(flag == false) return ;
