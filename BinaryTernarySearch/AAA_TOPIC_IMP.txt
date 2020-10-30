@@ -1,0 +1,17 @@
+# Binary search is a way of divinding the problems into half after every process.
+
+*. See the whole picture as a way to a search space
+
+1. Rotate a Array
+
+2. Search a pivot
+
+3. Find peak
+
+4. Allocate minimum number of pages
+
+5. Book Allocation
+
+6. Upper/Lower bound
+
+7. Minimum difference
