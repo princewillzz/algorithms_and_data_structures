@@ -15,6 +15,9 @@ public class CoinChangeMaxWays {
         System.out.println(solveTopDown(ar, ar.length, val, new Integer[ar.length + 1][val + 1]));
         System.out.println(solveBottomUp(ar, val));
 
+        Long a = 10L;
+        int ab = (int) a.longValue();
+
     }
 
     static int solveBottomUp(int coins[], int sum) {

@@ -37,6 +37,12 @@
 6. Kadane's Algorithm
 
 7. Matrix chain multiplications
+    - Printing MCM
+    - Evaluate expression to true/ Boolean paranthesization
+    - Min/Max value
+    - Palindrome partitioning
+    - Scrambled String 
+    - Egg dropping problem
 
 8. DP on Trees
 
