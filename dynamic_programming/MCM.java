@@ -17,32 +17,7 @@ public class MCM {
 
     }
 
-    // static int solveBottomUp(int ar[]) {
-    // int memo[][] = new int[ar.length + 1][ar.length + 1];
-
-    // for (int i = 0; i < memo.length; i++) {
-    // for (int j = 0; j < memo[i].length; j++) {
-    // if (i == 0 || j == 0)
-    // memo[i][j] = 0;
-    // else {
-    // if (i >= j)
-    // memo[i][j] = 0;
-    // else {
-    // memo[i][j] = Integer.MAX_VALUE;
-    // for (int k = i; k < j; k++) {
-    // if (i >= j)
-    // memo[i][j] = 0;
-    // else
-    // memo[i][j] = Math.min(memo[i][j],
-    // memo[i][k] + memo[k + 1][j] + (ar[i - 1] * ar[k] * ar[j]));
-    // }
-    // }
-    // }
-    // }
-    // }
-
-    // return memo[ar.length][ar.length];
-    // }
+    
 
     static int solveMemo(int ar[], int i, int j, Integer memo[][]) {
         if (i >= j)

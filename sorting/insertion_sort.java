@@ -13,6 +13,7 @@ public class insertion_sort {
 		is.sort(array);
 
 		for(int ele: array) System.out.print(ele + " ");
+		System.out.println();
 		
 	}
 	public void sort(int[] ar) {
