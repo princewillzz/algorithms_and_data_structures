@@ -86,87 +86,8 @@ class LinkedList<T> {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    
 
-        LinkedList<Pagla> list = new LinkedList<>();
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        while (true) {
-            System.out.println("1...add\n2...display\n3...insert beginning\n4...Search\n5...delete\nOther...exit");
-            int ch = Integer.parseInt(br.readLine());
-            if (ch == 1) {
-                System.out.print("Enter roll: ");
-                Integer data = Integer.parseInt(br.readLine());
-                System.out.print("Enter name: ");
-                String name = br.readLine();
-
-                Pagla obj = new Pagla(data, name);
-
-                list.insert(obj);
-
-            } else if (ch == 2) {
-                list.display();
-            } else if (ch == 3) {
-                System.out.print("Enter roll: ");
-                Integer data = Integer.parseInt(br.readLine());
-                System.out.print("Enter name: ");
-                String name = br.readLine();
-
-                Pagla obj = new Pagla(data, name);
-
-                list.insert(obj);
-
-            } else if (ch == 4) {
-                System.out.print("Enter data: ");
-                Integer data = Integer.parseInt(br.readLine());
-
-                // if (list.search(data))
-                // System.out.println("Found");
-                // else
-                // System.out.println("not found");
-            } else if (ch == 5) {
-                // System.out.print("Enter data: ");
-                // Integer data = Integer.parseInt(br.readLine());
-                // list.delete(data);
-            } else {
-                return;
-
-            }
-        }
-
-    }
-
-}
-
-class Pagla {
-    int roll;
-    String name;
-
-    public Pagla(int roll, String name) {
-        this.roll = roll;
-        this.name = name;
-    }
-
-    public int getRoll() {
-        return roll;
-    }
-
-    public void setRoll(int roll) {
-        this.roll = roll;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Pagla [name=" + name + ", roll=" + roll + "]";
-    }
+    
 
 }
