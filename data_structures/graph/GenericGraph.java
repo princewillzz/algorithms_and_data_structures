@@ -23,9 +23,10 @@ public class GenericGraph<T> {
 
         // dist.put(source, 0);
         queue.add(source);
+        visited.add(source);
         while (!queue.isEmpty()) {
             T current = queue.pollFirst();
-            visited.add(current);
+
             if (current.equals(dest)) {
 
                 int dist = 0;
@@ -54,8 +55,13 @@ public class GenericGraph<T> {
                     queue.add(node);
                     // dist.put(node, dist.get(current) + 1);
                     parent.put(node, current);
+                    visited.add(node);
                 }
             }
+
+            // System.out.println("Current: " + current + " :" + adjList.get(current) + "
+            // Queue: " + queue
+            // + " Parent of current: " + parent.get(current));
 
         }
 
