@@ -30,9 +30,9 @@ public class bitwiseOP {
 
             // Once changes from tue to false it cannot be converted back
             boolean c = false;
-            while (true) System.out.println("or: " + (c|=sc.nextBoolean()));
+            System.out.println("or: " + (c|=sc.nextBoolean()));
             
-            
+            break;
 
             
         }
