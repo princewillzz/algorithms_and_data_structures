@@ -14,6 +14,36 @@ public class GenericGraph<T> {
         adjList = new HashMap<>();
     }
 
+    List<T> topologicalSort() {
+        LinkedList<T> sortedVertices = new LinkedList<>();
+
+        HashSet<T> visited = new HashSet<>();
+        for (T key : adjList.keySet()) {
+
+            if (!visited.contains(key)) {
+                System.out.println("key : " + key);
+                topologicalSorthelper(key, sortedVertices, visited);
+            }
+        }
+
+        return sortedVertices;
+
+    }
+
+    private void topologicalSorthelper(T current, LinkedList<T> sortedVert, HashSet<T> visited) {
+        visited.add(current);
+
+        for (T neighbour : adjList.get(current)) {
+
+            if (!visited.contains(neighbour)) {
+                topologicalSorthelper(neighbour, sortedVert, visited);
+            }
+
+        }
+        sortedVert.addFirst(current);
+
+    }
+
     int distance(T source, T dest) {
         LinkedList<T> queue = new LinkedList<>();
         HashSet<T> visited = new HashSet<>();
@@ -96,15 +126,17 @@ public class GenericGraph<T> {
         LinkedList<T> queue = new LinkedList<>();
         queue.add(source);
         HashSet<T> visited = new HashSet<>();
+        visited.add(source);
         while (!queue.isEmpty()) {
             T key = queue.pollFirst();
-            visited.add(key);
+
             System.out.print(key + " -> ");
             List<T> neighbours = adjList.get(key);
 
             for (T city : neighbours) {
                 if (!visited.contains(city)) {
                     queue.add(city);
+                    visited.add(city);
                 }
             }
 
