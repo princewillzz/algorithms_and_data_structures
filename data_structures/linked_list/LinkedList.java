@@ -1,9 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
-class LinkedList<T> {
+public class LinkedList<T> {
 
     private Node root;
 
@@ -86,8 +81,37 @@ class LinkedList<T> {
 
     }
 
+    // Reverse the linkedList
+    public void reverse() {
+        
+        Node currentRoot = root, prev = null, next = null;
+
+
+        while (currentRoot != null) {
+            next = currentRoot.next;
+
+            currentRoot.next = prev;
+
+            prev = currentRoot;
+            currentRoot = next;
+        }
+
+        root = prev;
+    }
     
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        Node temp = root;
+        while(temp != null) {
+            sb.append(temp.data + " => ");
+            temp = temp.next;
+        }
+
+        return sb.toString();
+    }
     
 
 }
